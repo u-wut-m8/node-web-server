@@ -24,10 +24,10 @@ app.use((req, res, next) => {
   });
   next();
 });
-
-app.use((req, res, next) => {
-  res.render("maintenance.hbs");
-});
+//
+// app.use((req, res, next) => {
+//   res.render("maintenance.hbs");
+// });
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
@@ -54,6 +54,10 @@ app.get("/bad", (req, res) => {
   res.send({
     errorMessage: "Error occured!"
   });
+});
+
+app.get("/projects", (req, res) => {
+  res.render("projects.hbs");
 });
 
 app.listen(port, () => {
